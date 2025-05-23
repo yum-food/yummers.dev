@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+MARKDOWN_IN="$1"
+[ -z "$MARKDOWN_IN" ] && { echo "Script requires one markdown argument."; exit 1; }
+
+set -o errexit
+set -o xtrace
+
+pandoc --toc --template template.html -o index.html "$MARKDOWN_IN"
+mv index.html /var/www/html/
+cp -r vr_assets /var/www/html/
+cp -r images /var/www/html/
+
