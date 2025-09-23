@@ -6,8 +6,22 @@ MARKDOWN_IN="$1"
 set -o errexit
 set -o xtrace
 
-pandoc --toc --template template.html -o index.html "$MARKDOWN_IN"
-mv index.html /var/www/html/
+OUTPUT_DIR="site_generated"
+[ -d "$OUTPUT_DIR" ] && rm -r "$OUTPUT_DIR"
+mkdir "$OUTPUT_DIR"
+
+pandoc \
+  --mathml \
+  --template template.html \
+  --split-level 2 \
+  --toc \
+  -o "$OUTPUT_DIR/index.html" \
+  "$MARKDOWN_IN"
+
+mv -f "$OUTPUT_DIR"/* /var/www/html/
+gzip -k -9 -f js/*.js
+gzip -k -9 -f js/*.css
+cp -r js /var/www/html/
 cp -r vr_assets /var/www/html/
 cp -r images /var/www/html/
 
