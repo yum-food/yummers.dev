@@ -14,6 +14,7 @@ pandoc \
   --mathml \
   --template template.html \
   --toc \
+  --toc-depth 1 \
   -t chunkedhtml \
   --split-level 1 \
   --chunk-template "%i.html" \
@@ -21,6 +22,8 @@ pandoc \
   "$MARKDOWN_IN"
 
 unzip -o "$OUTPUT_DIR/site.zip" -d /var/www/html/
+# Remove in-page hash fragments from TOC links on the landing page so links open at page top
+sed -E -i 's/(href="[^"#]+\.html)#[^"]+"/\1"/g' /var/www/html/index.html || true
 gzip -k -9 -f js/*.js
 gzip -k -9 -f js/*.css
 cp -r js /var/www/html/

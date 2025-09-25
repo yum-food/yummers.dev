@@ -67,7 +67,6 @@ $endif$
     a:visited { color: var(--foreground-color); }
     a:hover {
       color: var(--aqua-color);
-      text-decoration: none;
     }
     blockquote {
       color: var(--foreground-color);
@@ -76,6 +75,19 @@ $endif$
     ::selection {
       background-color: var(--selection-color);
     }
+    pre, code {
+      background-color: var(--current-line-color);
+      color: var(--foreground-color);
+    }
+    /* Pandoc syntax highlighting token classes */
+    code span.co { color: var(--comment-color); font-style: italic; }
+    code span.kw { color: var(--red-color); }
+    code span.dt { color: var(--blue-color); }
+    code span.fu { color: var(--yellow-color); }
+    code span.st, code span.ss { color: var(--yellow-color); }
+    code span.dv, code span.bn, code span.fl { color: var(--orange-color); }
+    code span.op { color: var(--aqua-color); }
+    code span.cn, code span.va, code span.bu { color: var(--purple-color); }
   </style>
 $for(css)$
   <link rel="stylesheet" href="$css$" />
@@ -112,7 +124,7 @@ $if(title)$
   </header>
 $endif$
 $if(toc)$
-  <h2>articles</h2>
+  <h1>articles</h1>
   <nav id="$idprefix$TOC" role="doc-toc">
   $if(toc-title)$
     <h2 id="$idprefix$toc-title">$toc-title$</h2>
@@ -123,7 +135,7 @@ $endif$
 $body$
 $if(toc)$
 $else$
-  <p><a href="index.html">back to main page</a></p>
+  <p><a href="/">back to main page</a></p>
 $endif$
 $for(include-after)$
 $include-after$

@@ -2,7 +2,7 @@
 pagetitle: yummers
 lang: en
 ---
-## 6 wave dispersion relations with derivatives
+# 6 wave dispersion relations with derivatives
 21 Sep 2025
 
 Tessendorf's 2005 paper
@@ -223,13 +223,13 @@ derivations of each derivative:
     Divide numerator and denominator by $\rho$ (or p in wolfram) to make them
     match.
 
-## meow meow meow meow
+# meow meow meow meow
 10 Sep 2025
 
 meow meow meow meow meow meow meow meow'meow meow meow meow meow. meow
 meow meow meow.
 
-### meow meow
+## meow meow
 
 * meow meow meow 3 meow meow 65 meow meow meow.
   * 3% meow meow meow meow meow meow meow 3 meow.
@@ -241,7 +241,7 @@ meow meow meow.
 * meow meow meow meow meow 10 meow/meow^2 meow'meow meow. meow'meow meow
   meow meow meow meow meow.
 
-### meow, meow: meow meow meow meow meow (2007)
+## meow, meow: meow meow meow meow meow (2007)
 
 [meow meow meow.](meow://meow.meow.meow.meow/meow/meow/meow/meow43-48-meow2007.meow)
 
@@ -306,7 +306,7 @@ meow meow
   * meow meow meow meow meow meow meow meow meow 10 meow meow meow.
 * meow meow meow meow meow meow 3 meow meow meow meow *meow*.
 
-### meow, meow: meow meow meow meow meow meow meow
+## meow, meow: meow meow meow meow meow meow meow
 meow (2002)
 
 [meow meow meow.](meow://meow.meow/2001-150.meow)
@@ -337,13 +337,19 @@ meow
 * meow meow meow meow meow meow meow meow meow meow meow,
   meow 8.8% meow meow meow meow meow ~55% meow meow meow meow.
 
-## low poly chains via raymarching
+# rasterized ray marching at scale
 11 Jun 2025
 
 I've long had the dream of creating high resolution chains on characters with
 raymarching. The problem is that Unity's object transform is based on the
 character's hip bone, so making raymarched geometry "stick" to characters
-is impossible. I believe that I've finally solved this.
+is impossible.
+
+The idea I've been toying with for a long time is to raymarch inside a
+rasterized box. If you store information in that box's verts, you could do a
+raymarch inside a wholly self contained coordinate system.
+
+I've pulled this off, but not in a way which is useful for characters.
 
 ![One draw call, many raymarched objects.](./images/2025_06_11/fake_origins_31.png){width=80%}
 
@@ -356,7 +362,7 @@ TLDR:
   [here](https://github.com/yum-food/2ner/blob/master/Scripts/Editor/DecodeVertexData.cs).
 * Provide HLSL code showing how to use the baked data.
 
-### Main ideas and HLSL
+## Main ideas and HLSL
 
 The core idea is to make it possible for each fragment of a material to learn
 an origin point's location and orientation. If you can recover an origin point
@@ -488,7 +494,7 @@ RayMarcherOutput MyRayMarcher(v2f i) {
 }
 ```
 
-### Scalability and limitations
+## Scalability and limitations
 
 1. This technique is extremely scalable. I have a world with 16,000 bounding boxes
 that runs at ~800 microseconds/frame without volumetrics.
@@ -518,7 +524,7 @@ re-bake](./images/2025_06_11/fake_origins_34.png){width=80%}
 
 ![Shear in Unity.](./images/2025_06_11/fake_origins_35.png){width=80%}
 
-### Blender and Unity tooling
+## Blender and Unity tooling
 
 I've written a Blender plugin to permit myself to bake the vectors and
 quaternions as described above.
@@ -584,7 +590,7 @@ can correct for that in your SDF.)
 ![Visualize baked data in
 Unity.](./images/2025_06_11/fake_origins_39.png){width=80%}
 
-## how much CO2 do American cars produce?
+# how much CO2 do American cars produce?
 23 May 2025
 
 TLDR: About $1.520 \cdot 10^{12}$ kg/year. This increases the CO$_2$ in the
@@ -716,7 +722,7 @@ we have arrived at the same conclusion as the "entrenched academics": that the
 change in CO$_2$ in the atmosphere over the last 200 years is due to human
 activity.
 
-## "big llms are memory bound"
+# "big llms are memory bound"
 22 May 2025
 
 There is wisdom oft repeated that "big neural nets are limited by memory bandwidth."
@@ -798,7 +804,7 @@ In conclusion:
    bandwidth and compute dictate throughput in inverse proportion to model size.
 3. People on the internet (especially redditors) are fucking stupid.
 
-## meow meow meow meow
+# meow meow meow meow
 14 Apr 2025
 
 meow meow meow meow meow meow meow meow. meow meow meow meow, meow meow
@@ -810,7 +816,7 @@ meow meow; meow, meow meow meow meow meow meow meow.
 
 meow meow meow meow meow. meow meow meow. meow meow.
 
-## riding crop
+# riding crop
 7 Apr 2025
 
 ![Image of a 3D model of a riding crop.](./vr_assets/riding_crop/cover_photo.jpg)
@@ -822,7 +828,7 @@ the gumroad page for setup instructions.
 Gumroad suspended my account over this product. Yes, over a fucking
 *riding crop*. That's why it's hosted here. Enjoy the 100% discount <3
 
-## a panoply of frameworks
+# a panoply of frameworks
 3 Apr 2025
 
 I want to use electron. I know that raw CSS sucks dick so let's use a
@@ -838,7 +844,7 @@ Good thing I actually read the electron docs.
 
 I want to die.
 
-## electron first impressions
+# electron first impressions
 1 Apr 2025
 
 Occasionally I want to build some throwaway app for use by other people.
@@ -874,7 +880,7 @@ was around 30 MB with my entire STT app built in. Worse but IMO within the
 realm of reasonability. Time to first draw is pretty good - under a
 second according to the eyeball test.
 
-## hello world :3
+# hello world :3
 20 Mar 2025
 
 <video autoplay loop muted playsinline>
