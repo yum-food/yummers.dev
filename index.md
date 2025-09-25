@@ -100,7 +100,9 @@ derivations of each derivative:
     \frac{\partial \omega}{\partial k} &= \frac{1}{2} [gk \tanh kh]^{-\frac{1}{2}} [g \tanh (kh) + gkh(1 - \tanh ^2 kh] \\
     &= \frac{g(\tanh kh + kh(1 - \tanh ^2 kh))}{2 \sqrt{gk \tanh kh}} \\
     &= \frac{g \tanh kh + gkh (1 - \tanh^2 kh)}{2 \sqrt{gk \tanh kh}} \\
-    &= \frac{1}{2} [\sqrt{g \tanh kh} + \frac {gkh(1 - \tanh^2 kh)}{\sqrt{gk \tanh kh}}]
+    &= \frac{1}{2} [\sqrt{g \tanh kh} + \frac {gkh(1 - \tanh^2 kh)}{\sqrt{gk \tanh kh}}] \\
+    &= \frac {g \tanh kh + gkh(1 - \tanh^2 kh)}{2\sqrt{gk \tanh kh}} \\
+    &= \frac {g (\tanh kh + kh \operatorname{sech}^2 kh)}{2\sqrt{gk \tanh kh}}
     \end{align*}
     $$
 
@@ -146,7 +148,8 @@ derivations of each derivative:
     &= \frac{\partial}{\partial k} (\tanh kh)^{\frac{1}{2}} \\
     &= \frac{1}{2} (\tanh kh)^{-\frac{1}{2}} \frac{\partial}{\partial k} \tanh kh \\
     &= \frac{1}{2} (\tanh kh)^{-\frac{1}{2}} h(1 - \tanh^2 kh) \\
-    &= h \frac{1 - \tanh^2 kh}{2 \sqrt{\tanh kh}}
+    &= h \frac{1 - \tanh^2 kh}{2 \sqrt{\tanh kh}} \\
+    &= h \frac{\operatorname{sech}^2 kh}{2 \sqrt{\tanh kh}}
     \end{align*}
     $$
 

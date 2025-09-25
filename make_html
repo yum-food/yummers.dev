@@ -13,12 +13,14 @@ mkdir "$OUTPUT_DIR"
 pandoc \
   --mathml \
   --template template.html \
-  --split-level 2 \
   --toc \
-  -o "$OUTPUT_DIR/index.html" \
+  -t chunkedhtml \
+  --split-level 1 \
+  --chunk-template "%i.html" \
+  -o "$OUTPUT_DIR/site.zip" \
   "$MARKDOWN_IN"
 
-mv -f "$OUTPUT_DIR"/* /var/www/html/
+unzip -o "$OUTPUT_DIR/site.zip" -d /var/www/html/
 gzip -k -9 -f js/*.js
 gzip -k -9 -f js/*.css
 cp -r js /var/www/html/
