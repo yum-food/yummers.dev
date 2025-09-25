@@ -75,19 +75,30 @@ $endif$
     ::selection {
       background-color: var(--selection-color);
     }
-    pre, code {
+    .sourceCode {
       background-color: var(--current-line-color);
+      padding: 1em;
+      border-radius: 1em;
+    }
+    .sourceCode pre {
+      margin: 0;
+      padding: 0;
+      background: transparent;
       color: var(--foreground-color);
     }
+    .sourceCode code { background: transparent; }
     /* Pandoc syntax highlighting token classes */
-    code span.co { color: var(--comment-color); font-style: italic; }
-    code span.kw { color: var(--red-color); }
-    code span.dt { color: var(--blue-color); }
-    code span.fu { color: var(--yellow-color); }
-    code span.st, code span.ss { color: var(--yellow-color); }
-    code span.dv, code span.bn, code span.fl { color: var(--orange-color); }
-    code span.op { color: var(--aqua-color); }
-    code span.cn, code span.va, code span.bu { color: var(--purple-color); }
+    code span.co, code span.an, code span.do, code span.cv { color: var(--comment-color); }
+    code span.kw, code span.cf, code span.er { color: var(--red-color); }
+    code span.dt, code span.at, code span.re { color: var(--blue-color); }
+    code span.fu, code span.st, code span.ss, code span.wa, code span.vs { color: var(--yellow-color); }
+    code span.dv, code span.bn, code span.fl, code span.al { color: var(--orange-color); }
+    code span.op, code span.ot, code span.in, code span.sc, code span.ch { color: var(--aqua-color); }
+    code span.cn, code span.va, code span.bu, code span.ex { color: var(--purple-color); }
+    code span.im, code span.pp { color: var(--green-color); }
+    code span.co { font-style: italic; }
+    code span.er { text-decoration: underline; }
+    code span.al { font-weight: bold; }
   </style>
 $for(css)$
   <link rel="stylesheet" href="$css$" />

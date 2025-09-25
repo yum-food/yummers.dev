@@ -348,8 +348,8 @@ is impossible.
 The idea I've been toying with for a long time is to raymarch inside a
 rasterized box. If you store information in that box's verts, you could do a
 raymarch inside a wholly self contained coordinate system.
+I've pulled this off, but not in a way which is useful for characters (yet).
 
-I've pulled this off, but not in a way which is useful for characters.
 
 ![One draw call, many raymarched objects.](./images/2025_06_11/fake_origins_31.png){width=80%}
 
@@ -454,8 +454,8 @@ RayMarcherOutput MyRayMarcher(v2f i) {
   float4 quat = GetRotation(i, uv_channels);
   float4 iquat = float4(-quat.xyz, quat.w);
 
-  // ro is already expressed in terms of rotated basis vectors, so we don't
-  // have to rotate it again.
+  // ro is already expressed in terms of rotated basis vectors, so we
+  // don't have to rotate it again.
   float3 ro = -frag_to_origin;
   float3 rd = normalize(i.objPos - obj_space_camera_pos);
   rd = rotate_vector(rd, iquat);
@@ -484,8 +484,8 @@ RayMarcherOutput MyRayMarcher(v2f i) {
   float4 clipPos = UnityObjectToClipPos(o.objPos);
   o.depth = clipPos.z / clipPos.w;
 
-  // Calculate normal in rotated space using standard raymarcher gradient
-  // technique
+  // Calculate normal in rotated space using standard raymarcher
+  // gradient technique
   float3 sdfNormal = calc_normal(localHit);
   float3 objNormal = rotate_vector(sdfNormal, quat);
   o.normal = UnityObjectToWorldNormal(objNormal);
