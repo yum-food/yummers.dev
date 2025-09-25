@@ -427,6 +427,7 @@ I made two non obvious decisions in the way I bake the vertex offsets:
    think in terms of the bounding box dimensions rather than the square root of
    the sum of squares of the box's dimensions. Like if your box is 1x0.6x0.2,
    then you can just raymarch a primitive with those dimensions and your
+   simulation Just Works.
 
 The origin point is recovered on the GPU as follows:
 

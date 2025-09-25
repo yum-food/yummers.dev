@@ -22,8 +22,17 @@ $endif$
     $styles.html()$
   </style>
   <style>
-    :root {
-      color-scheme: light dark;
+    /* regular text */
+    body {
+      font-family: "Times New Roman", Times, "Iowan Old Style", "Apple Garamond", serif;
+    }
+    /* code */
+    pre, code, kbd, samp {
+      font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+    }
+    /* math */
+    math {
+      font-family: "Cambria Math", "Latin Modern Math", "STIX Two Math", serif;
     }
     @media (prefers-color-scheme: dark) {
       /* Tomorrow night theme: https://github.com/chriskempson/tomorrow-theme */
@@ -43,6 +52,7 @@ $endif$
       }
     }
     @media (prefers-color-scheme: light) {
+      /* Tomorrow theme: https://github.com/chriskempson/tomorrow-theme */
       :root {
         --background-color: #ffffff;
         --current-line-color: #e0e0e0;
@@ -58,7 +68,7 @@ $endif$
         --purple-color: #8959a8;
       }
     }
-
+    /* basic styling */
     html, body {
       background-color: var(--background-color);
       color: var(--foreground-color);
@@ -75,18 +85,16 @@ $endif$
     ::selection {
       background-color: var(--selection-color);
     }
+    /* code */
     .sourceCode {
       background-color: var(--current-line-color);
-      padding: 1em;
       border-radius: 1em;
     }
     .sourceCode pre {
-      margin: 0;
-      padding: 0;
+      padding: 1em;
       background: transparent;
       color: var(--foreground-color);
     }
-    .sourceCode code { background: transparent; }
     /* Pandoc syntax highlighting token classes */
     code span.co, code span.an, code span.do, code span.cv { color: var(--comment-color); }
     code span.kw, code span.cf, code span.er { color: var(--red-color); }

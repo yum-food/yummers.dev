@@ -23,10 +23,7 @@ pandoc \
 
 unzip -o "$OUTPUT_DIR/site.zip" -d /var/www/html/
 # Remove in-page hash fragments from TOC links on the landing page so links open at page top
-sed -E -i 's/(href="[^"#]+\.html)#[^"]+"/\1"/g' /var/www/html/index.html || true
-gzip -k -9 -f js/*.js
-gzip -k -9 -f js/*.css
-cp -r js /var/www/html/
+sed -E -i 's/(href="[^"#]+\.html)#[^"]+"/\1"/g' /var/www/html/index.html
 cp -r vr_assets /var/www/html/
 cp -r images /var/www/html/
 

@@ -5,6 +5,7 @@ this is the source code for my website, [yummers.dev](https://yummers.dev)
 to build:
 
 ```bash
+# install pandoc>=3.8, zip
 $ ./make_html index.md
 ```
 
