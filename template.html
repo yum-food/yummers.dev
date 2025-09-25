@@ -26,20 +26,55 @@ $endif$
       color-scheme: light dark;
     }
     @media (prefers-color-scheme: dark) {
-      html, body {
-        background-color: #0b0b0f;
-        color: #e6e6e6;
+      /* Tomorrow night theme: https://github.com/chriskempson/tomorrow-theme */
+      :root {
+        --background-color: #1d1f21;
+        --current-line-color: #282a2e;
+        --selection-color: #373b41;
+        --foreground-color: #c5c8c6;
+        --comment-color: #969896;
+        --red-color: #cc6666;
+        --orange-color: #de935f;
+        --yellow-color: #f0c674;
+        --green-color: #b5bd68;
+        --aqua-color: #8abeb7;
+        --blue-color: #81a2be;
+        --purple-color: #b294bb;
       }
-      a { color: #8ab4f8; }
-      a:visited { color: #c58af9; }
-      hr { border-color: #30363d; }
-      pre, code { background-color: #11151a; }
-      pre { border: 1px solid #2a2f3a; }
-      blockquote {
-        color: #c9d1d9;
-        border-left: 4px solid #30363d;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --background-color: #ffffff;
+        --current-line-color: #e0e0e0;
+        --selection-color: #d6d6d6;
+        --foreground-color: #4d4d4c;
+        --comment-color: #8e908c;
+        --red-color: #c82829;
+        --orange-color: #f5871f;
+        --yellow-color: #eab700;
+        --green-color: #718c00;
+        --aqua-color: #3e999f;
+        --blue-color: #4271ae;
+        --purple-color: #8959a8;
       }
-      table, th, td { border-color: #30363d; }
+    }
+
+    html, body {
+      background-color: var(--background-color);
+      color: var(--foreground-color);
+    }
+    a { color: var(--foreground-color); }
+    a:visited { color: var(--foreground-color); }
+    a:hover {
+      color: var(--aqua-color);
+      text-decoration: none;
+    }
+    blockquote {
+      color: var(--foreground-color);
+      border-left: 4px solid var(--current-line-color);
+    }
+    ::selection {
+      background-color: var(--selection-color);
     }
   </style>
 $for(css)$
@@ -57,35 +92,39 @@ $for(include-before)$
 $include-before$
 $endfor$
 $if(title)$
-<header id="title-block-header">
-<h1 class="title">$title$</h1>
-$if(subtitle)$
-<p class="subtitle">$subtitle$</p>
-$endif$
-$for(author)$
-<p class="author">$author$</p>
-$endfor$
-$if(date)$
-<p class="date">$date$</p>
-$endif$
-$if(abstract)$
-<div class="abstract">
-<div class="abstract-title">$abstract-title$</div>
-$abstract$
-</div>
-$endif$
-</header>
+  <header id="title-block-header">
+  <h1 class="title">$title$</h1>
+  $if(subtitle)$
+    <p class="subtitle">$subtitle$</p>
+  $endif$
+  $for(author)$
+    <p class="author">$author$</p>
+  $endfor$
+  $if(date)$
+    <p class="date">$date$</p>
+  $endif$
+  $if(abstract)$
+    <div class="abstract">
+    <div class="abstract-title">$abstract-title$</div>
+    $abstract$
+    </div>
+  $endif$
+  </header>
 $endif$
 $if(toc)$
-<h2>articles</h2>
-<nav id="$idprefix$TOC" role="doc-toc">
-$if(toc-title)$
-<h2 id="$idprefix$toc-title">$toc-title$</h2>
-$endif$
-$table-of-contents$
-</nav>
+  <h2>articles</h2>
+  <nav id="$idprefix$TOC" role="doc-toc">
+  $if(toc-title)$
+    <h2 id="$idprefix$toc-title">$toc-title$</h2>
+  $endif$
+  $table-of-contents$
+  </nav>
 $endif$
 $body$
+$if(toc)$
+$else$
+  <p><a href="index.html">back to main page</a></p>
+$endif$
 $for(include-after)$
 $include-after$
 $endfor$
